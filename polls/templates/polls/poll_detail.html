@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls List</title>
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+</head>
+<body>
+    <h1>{{South African Education System With Accessibility for Children with Disabilities}}</h1>
+<p>{{This app helps South African learners including those with disabilities to vote on educational issues such as safety, accessibility, learning support and infrastructure in a simple and accessible way.}}</p>
+
+<form method="post" action="{% url 'vote' poll.id %}">
+  {% csrf_token %}
+  {% for choice in poll.choice_set.all %}
+    <label>
+      <input type="radio" name="choice" value="{{ choice.id }}">
+      {{ choice.choice_text }}
+    </label><br>
+  {% endfor %}
+  <button type="submit" aria-label="Submit your vote">Vote</button>
+
+</form>
+</body>
+</html>

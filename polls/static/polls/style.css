@@ -1,0 +1,63 @@
+body {font-family: Arial, sans-serif; 
+    margin: 20px;
+background-color:#ffc1a4bd;
+color: #222;
+line-height: 1.6;
+padding:20 px;
+}
+
+a {font-size: 1.2em; 
+    display: block; 
+    margin: 8px 0;
+    color: #0066cc;
+    text-decoration:none;
+}
+
+h1 {font-size: 2em;
+margin-bottom: 15px;
+color: #004080; /*dark blue color*/
+}
+
+a.hover{
+    text-decoration: underline;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    font-size: 1.1em
+}
+
+button{
+    background-color: #004080; /*dark blue*/
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #003366; /*darker blue*/
+}
+
+/* High contrast mode */
+.high-contrast {
+    background-color: black !important;
+    color: yellow !important;
+}
+
+.high-contrast h1,
+.high-contrast a,
+.high-contrast label,
+.high-contrast button {
+    color: yellow !important;
+}
+
+.high-contrast button {
+    background-color: yellow !important;
+    color: black !important;
+}
