@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'polls/style.css' %}">
     <script>
         function toggleContrast() {
-            document.bidy.classList.toggle('high-contrast');
+            document.body.classList.toggle('high-contrast');
         
         }
     </script>
@@ -15,13 +16,13 @@
 </head>
 <body>
     <h1>Available Polls</h1>
-        <list>
+        <ul>
     {% for poll in polls %}
-                <list><a href="{% url 'poll_detail' poll.id %}">{{ poll.question }}</a></list>
+                <li><a href="{% url 'poll_detail' poll.id %}">{{ poll.question }}</a></li>
     {% empty %}
-                <list>No polls are available.</list>
+                <li>No polls are available.</li>
     {% endfor %}
-        </list>
+        </ul>
     <button onclick="toggleContrast()" aria-label="Toggle high contrast mode">
         Toggle High Contrast
     </button>

@@ -16,8 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect 
+
+def redirect_to_polls(request):
+    return redirect('poll_list') # or redirect('/polls/')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',redirect_to_polls), # Redirect root URL to polls app
     path('polls/',include('polls.urls'))
 ]
