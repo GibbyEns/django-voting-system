@@ -8,6 +8,8 @@
     <script src="{% static 'js/script.js' %}" defer></script>
 </head>
 <body>
+    <a href="{% url 'results' %}">See Results</a>
+
     <!-- Accessibility Toolbar -->
     <div class="accessibility-toolbar">
         <button onclick="toggleContrast()">Contrast</button>
@@ -37,13 +39,13 @@
         <!-- ============ LOGIN PAGE ============ -->
         <div id="login-page" class="page">
             <h2>Login</h2>
-            <div id="login-error" class="alert alert-danger" style="display:none;"></div>
+            <div id="login-error" class="alert alert-danger hidden"></div>
             <form id="login-form" onsubmit="handleLogin(event)">
                 <input type="text" id="username" name="username" placeholder="Username (4 letters)" required>
                 <br><br>
                 <input type="password" id="password" name="password" placeholder="Password (2 letters + 2 numbers)" required>
                 <br>
-                <small style="color:#555;">Password must be 2 letters followed by 2 numbers (e.g., ab12)</small>
+                <small class="password-hint">Password must be 2 letters followed by 2 numbers (e.g., ab12)</small>
                 <br><br>
                 <button type="submit" class="btn">Login</button>
             </form>
@@ -84,7 +86,7 @@
             <h2>Accessibility Survey</h2>
             <form id="survey-form" onsubmit="handleSurvey(event)">
                 <div class="progress-bar">
-                    <div id="progressFill" class="progress-fill" style="width:0%;"></div>
+                    <div id="progressFill" class="progress-fill"></div>
                 </div>
                 <div id="survey-questions">
                     <!-- Questions will be loaded by JavaScript -->

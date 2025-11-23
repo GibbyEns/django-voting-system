@@ -33,6 +33,9 @@ def poll_view(request):
     return render(request, "poll.html", {"questions": questions})
 
 
+def index_view(request):
+    return render(request, "index.html")
+
 QUESTIONS = [
     
   {

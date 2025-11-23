@@ -24,6 +24,6 @@ def redirect_to_polls(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',redirect_to_polls), # Redirect root URL to polls app
-    path('polls/',include('polls.urls'))
-    patth("", inculde("disable_votings.urls")),
+    path('polls/',include('polls.urls')),
+    path("", include("disable_votings.urls")),
 ]

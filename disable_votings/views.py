@@ -11,4 +11,8 @@ def poll_view(request):
 def poll_view(request):
     return render(request, "index.html")
 
+def poll_view(request):
+    return render(request, "poll.html")
 
+def results_view(request):
+    return render(request, "results.html")

@@ -8,4 +8,5 @@ urlpatterns = [
     path('poll/<int:poll_id>/vote/', views.vote, name='vote'),
     path('poll/<int:poll_id>/results/', views.results, name='results'),
     path("polls/", views.poll_view, name="polls"),
-]
+    path("", views.index_view, name="index"),
+     ]
