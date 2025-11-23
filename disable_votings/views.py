@@ -1,3 +1,10 @@
+import json
+from pathlib import Path
 from django.shortcuts import render
 
-# Create your views here.
+def poll_view(request):
+    questions_file = Path(__file__).resolve().parent / "poll_questions.json"
+    with open(questions_file) as f:
+        questions = json.load(f)
+    return render(request, "poll.html", {"questions": questions})
+
