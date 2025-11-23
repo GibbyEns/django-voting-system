@@ -16,4 +16,12 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+    
+    from django.db import models
 
+class PollQuestion(models.Model):
+    question_text = models.CharField(max_length=255)
+    options = models.JSONField()  # stores ["Yes", "No"] or multiple choices
+
+    def __str__(self):
+        return self.question_text
