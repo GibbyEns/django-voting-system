@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Voting System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Accessibility Toolbar -->
+    <div class="accessibility-toolbar">
+        <button onclick="toggleContrast()">Contrast</button>
+        <button onclick="increaseFont()">A+</button>
+        <button onclick="decreaseFont()">A-</button>
+        <button onclick="toggleAudio()">🔊 Audio</button>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <h1>Accessible Voting & Survey System</h1>
+    </header>
+    
+    <!-- Main Content Container -->
+    <div class="container">
+        
+        <!-- ============ WELCOME PAGE ============ -->
+        <div id="welcome-page" class="page active">
+            <img src="https://thumbs.dreamstime.com/x/disability-employment-disabled-people-work-landing-page-template-set-handicapped-businessman-characters-wheelchair-214613649.jpg" 
+                 alt="Welcome Image - People with disabilities in workplace" 
+                 class="welcome-image">
+            <h2>Welcome!</h2>
+            <p>This system helps check if voting meets accessibility requirements for people with disabilities.</p>
+            <button class="btn" onclick="showPage('login-page')">Login</button>
+        </div>
+        
+        <!-- ============ LOGIN PAGE ============ -->
+        <div id="login-page" class="page">
+            <h2>Login</h2>
+            <div id="login-error" class="alert alert-danger" style="display:none;"></div>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <input type="text" id="username" name="username" placeholder="Username (4 letters)" required>
+                <br><br>
+                <input type="password" id="password" name="password" placeholder="Password (2 letters + 2 numbers)" required>
+                <br>
+                <small style="color:#555;">Password must be 2 letters followed by 2 numbers (e.g., ab12)</small>
+                <br><br>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <br>
+            <button class="btn" onclick="showPage('welcome-page')">⬅ Back</button>
+        </div>
+        
+        <!-- ============ MAIN MENU ============ -->
+        <div id="menu-page" class="page">
+            <h2>Main Menu</h2>
+            <p id="welcome-user"></p>
+            <button class="btn" onclick="showPage('vote-page')">🗳️ Vote Now</button>
+            <button class="btn" onclick="showPage('survey-page')">📝 Take Survey</button>
+            <button class="btn" onclick="showPage('results-page'); displayResults()">📊 View Results</button>
+        </div>
+        
+        <!-- ============ VOTING PAGE ============ -->
+        <div id="vote-page" class="page">
+            <h2>Vote for Accessibility Priorities</h2>
+            <div class="card-container" id="candidates-container">
+                <!-- Candidates will be loaded by JavaScript -->
+            </div>
+            <br>
+            <button class="btn" onclick="showPage('menu-page')">⬅ Back to Menu</button>
+        </div>
+        
+        <!-- ============ VOTE SUCCESS ============ -->
+        <div id="vote-success-page" class="page">
+            <div class="alert alert-success">
+                ✅ Vote submitted for <span id="voted-candidate"></span>!
+            </div>
+            <button class="btn" onclick="showPage('vote-page')">⬅ Back to Voting</button>
+            <button class="btn" onclick="showPage('menu-page')">🏠 Main Menu</button>
+        </div>
+        
+        <!-- ============ SURVEY PAGE ============ -->
+        <div id="survey-page" class="page">
+            <h2>Accessibility Survey</h2>
+            <form id="survey-form" onsubmit="handleSurvey(event)">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill" style="width:0%;"></div>
+                </div>
+                <div id="survey-questions">
+                    <!-- Questions will be loaded by JavaScript -->
+                </div>
+                <button type="submit" class="btn">📤 Submit Survey</button>
+            </form>
+            <br>
+            <button class="btn" onclick="showPage('menu-page')">⬅ Back to Menu</button>
+        </div>
+        
+        <!-- ============ SURVEY SUCCESS ============ -->
+        <div id="survey-success-page" class="page">
+            <div class="alert alert-success">
+                ✅ Survey submitted! Thank you for your feedback.
+            </div>
+            <button class="btn" onclick="showPage('menu-page')">🏠 Back to Menu</button>
+            <button class="btn" onclick="showPage('results-page'); displayResults()">📊 View Results</button>
+        </div>
+        
+        <!-- ============ RESULTS PAGE ============ -->
+        <div id="results-page" class="page">
+            <h2>📊 Voting Results</h2>
+            <div class="pie-container" id="pie-chart"></div>
+            <ul class="results-list" id="vote-results">
+                <!-- Results will be loaded by JavaScript -->
+            </ul>
+            
+            <h2>📝 Survey Responses</h2>
+            <div class="bar-chart" id="survey-results">
+                <!-- Survey results will be loaded by JavaScript -->
+            </div>
+            <br>
+            <button class="btn" onclick="showPage('menu-page')">⬅ Back to Menu</button>
+        </div>
+        
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        Created by Xolewe, Nongcebo, Wendy, Asemahle | GirlCode Project
+    </footer>
+</body>
+</html>
