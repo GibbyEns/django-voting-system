@@ -8,3 +8,7 @@ def poll_view(request):
         questions = json.load(f)
     return render(request, "poll.html", {"questions": questions})
 
+def poll_view(request):
+    return render(request, "index.html")
+
+
